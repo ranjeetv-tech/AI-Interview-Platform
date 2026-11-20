@@ -1,0 +1,3 @@
+'use client';
+import {LineChart,Line,XAxis,YAxis,Tooltip,ResponsiveContainer,CartesianGrid} from 'recharts';
+export default function TrendChart({data}:{data:any[]}){return <div className="h-72"><ResponsiveContainer width="100%" height="100%"><LineChart data={data}><CartesianGrid strokeDasharray="3 3" stroke="#202733"/><XAxis dataKey="date" tick={{fill:'#748095',fontSize:11}} tickFormatter={(v:any)=>v?new Date(v).toLocaleDateString(undefined,{month:'short',day:'numeric'}):''}/><YAxis domain={[0,100]} tick={{fill:'#748095',fontSize:11}}/><Tooltip contentStyle={{background:'#11151d',border:'1px solid #2a3140',borderRadius:10}}/><Line type="monotone" dataKey="score" strokeWidth={3} dot={false}/></LineChart></ResponsiveContainer></div>}
